@@ -39,24 +39,37 @@
         button:hover {
             background: #008cff;
         }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🚀 Smart Link Launcher 🚀</h1>
-        <p>আপনার ব্রাউজার অটোমেটিক কাজ করছে...</p>
-        <button id="autoClickButton" onclick="openWebsites()">Launch Links</button>
+        <p>আপনার পছন্দের ওয়েবসাইটের লিংক সেট করুন:</p>
+        <input type="text" id="site1" placeholder="প্রথম ওয়েবসাইট (URL)">
+        <input type="text" id="site2" placeholder="দ্বিতীয় ওয়েবসাইট (URL)">
+        <button onclick="generateLink()">🎯 লিংক তৈরি করুন</button>
+        <p id="generatedLink"></p>
     </div>
 
     <script>
-        function openWebsites() {
-            window.open("https://google.com", "_blank");
-            window.open("https://youtube.com", "_blank");
+        function generateLink() {
+            let site1 = document.getElementById("site1").value || "https://google.com";
+            let site2 = document.getElementById("site2").value || "https://youtube.com";
+            
+            let customLink = window.location.origin + "/open.html?site1=" + encodeURIComponent(site1) + "&site2=" + encodeURIComponent(site2);
+            
+            document.getElementById("generatedLink").innerHTML = `
+                ✅ <a href="${customLink}" target="_blank">কাস্টম লিংক ওপেন করুন</a>
+            `;
         }
-
-        window.onload = function() {
-            document.getElementById("autoClickButton").click();
-        };
     </script>
 </body>
 </html>
