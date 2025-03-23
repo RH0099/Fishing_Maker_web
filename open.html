@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Launching...</title>
+    <script>
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function() {
+            let site1 = getQueryParam("site1") || "https://google.com";
+            let site2 = getQueryParam("site2") || "https://youtube.com";
+
+            setTimeout(() => {
+                window.open(site1, "_blank");
+                window.open(site2, "_blank");
+            }, 1000);
+        };
+    </script>
+</head>
+<body>
+    <h1>🚀 লোড হচ্ছে... দয়া করে অপেক্ষা করুন!</h1>
+</body>
+</html>
